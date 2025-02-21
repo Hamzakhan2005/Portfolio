@@ -1,0 +1,13 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+}
+#cursor {
+  background-color: #fff;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  position: fixed;
+  backdrop-filter: blur(10px);
+}
