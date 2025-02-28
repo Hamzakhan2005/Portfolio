@@ -17,29 +17,57 @@ import {
 
 const Move = () => {
   function wheelAnim() {
+    let startX = 0;
+    let endX = 0;
+
     window.addEventListener("wheel", function (dets) {
       if (dets.deltaY >= 0) {
-        gsap.to(".move-marque", {
-          transform: "translateX(-200%)",
-          repeat: -1,
-          duration: 7,
-          ease: "none",
-        });
-        gsap.to(".move-marque img", {
-          rotate: 180,
-        });
+        moveRight();
       } else {
-        gsap.to(".move-marque", {
-          transform: "translateX(0%)",
-          repeat: -1,
-          duration: 7,
-          ease: "none",
-        });
-        gsap.to(".move-marque img", {
-          rotate: 0,
-        });
+        moveLeft();
       }
     });
+
+    // Mobile Touch Events
+    window.addEventListener("touchstart", function (e) {
+      startX = e.touches[0].clientX;
+    });
+
+    window.addEventListener("touchmove", function (e) {
+      endX = e.touches[0].clientX;
+    });
+
+    window.addEventListener("touchend", function () {
+      if (startX > endX + 50) {
+        moveRight();
+      } else if (startX < endX - 50) {
+        moveLeft();
+      }
+    });
+
+    function moveRight() {
+      gsap.to(".move-marque", {
+        transform: "translateX(-200%)",
+        repeat: -1,
+        duration: 7,
+        ease: "none",
+      });
+      gsap.to(".move-marque img", {
+        rotate: 180,
+      });
+    }
+
+    function moveLeft() {
+      gsap.to(".move-marque", {
+        transform: "translateX(0%)",
+        repeat: -1,
+        duration: 7,
+        ease: "none",
+      });
+      gsap.to(".move-marque img", {
+        rotate: 0,
+      });
+    }
   }
   wheelAnim();
   return (
