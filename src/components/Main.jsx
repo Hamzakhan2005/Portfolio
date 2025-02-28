@@ -43,22 +43,32 @@ const Main = () => {
       stagger: -0.15,
       opacity: 0,
     });
-    gsap.to(".intro-circle", {
-      duration: 0.1,
+    let mm = gsap.matchMedia();
 
-      scrollTrigger: {
-        trigger: ".intro-circle",
-        scroller: "body",
-        // markers: true,
-        start: "top 60%",
-        scrub: 5,
-      },
-      fontSize: 15,
-      y: 250,
-      x: -400,
-      scaleX: 3.5,
+    mm.add("(min-width: 768px)", () => {
+      // This animation runs only if the screen width is 768px or more
+      gsap.to(".intro-circle", {
+        duration: 0.1,
 
-      borderRadius: 47,
+        scrollTrigger: {
+          trigger: ".intro-circle",
+          scroller: "body",
+          // markers: true,
+          start: "top 60%",
+          scrub: 5,
+        },
+        fontSize: 15,
+        y: 250,
+        x: -400,
+        scaleX: 3.5,
+
+        borderRadius: 47,
+      });
+
+      return () => {
+        // Cleanup function (runs when the condition is no longer met)
+        gsap.killTweensOf(".intro-circle");
+      };
     });
   }, []);
   var path = `M 10 100 Q 450 10 890 100`;

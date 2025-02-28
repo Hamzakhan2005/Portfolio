@@ -125,16 +125,17 @@
     height: 3rem;
   }
 
-  /* .tech-content h1 {
+  .tech-content h1 {
     font-size: 1.5rem;
   }
 
   .tech-move-first,
   .tech-move-second {
+    flex-wrap: nowrap;
     gap: 2rem;
   }
 
   .tech-move-marque img {
     height: 1.8rem;
-  } */
+  }
 }

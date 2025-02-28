@@ -6,16 +6,25 @@ gsap.registerPlugin(useGSAP);
 
 const Projects = () => {
   useGSAP(() => {
-    gsap.to(".projects-desc", {
-      transform: "translateX(-250%)",
-      scrollTrigger: {
-        trigger: ".projects",
-        pin: true,
-        scroller: "body",
-        start: "top 0%",
-        end: "top -150%",
-        scrub: 2,
-      },
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 768px)", () => {
+      // This animation runs only if the screen width is 768px or more
+      gsap.to(".projects-desc", {
+        transform: "translateX(-250%)",
+        scrollTrigger: {
+          trigger: ".projects",
+          pin: true,
+          scroller: "body",
+          start: "top 0%",
+          end: "top -150%",
+          scrub: 2,
+        },
+      });
+
+      return () => {
+        // Cleanup function (runs when the condition is no longer met)
+        gsap.killTweensOf(".projects-desc");
+      };
     });
   });
 

@@ -82,13 +82,16 @@
 
 @media (max-width: 480px) {
   .projects {
-    flex-direction: column; /* Stack items vertically */
+    padding: 0;
+    flex-direction: column;
+    /* Stack items vertically */
     align-items: center;
     width: 100vw;
+    height: 80vh;
   }
 
   .projects-desc {
-    width: 90vw;
+    width: 70vw;
     height: auto;
     padding: 1.5rem;
   }

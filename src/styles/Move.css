@@ -65,6 +65,12 @@
 }
 
 @media (max-width: 480px) {
+  .move {
+    width: 110vw;
+    height: 80vh;
+    overflow-x: hidden;
+    overflow: hidden;
+  }
   .move-marque {
     gap: 1vw;
   }

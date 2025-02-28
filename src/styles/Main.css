@@ -124,6 +124,9 @@ nav {
 }
 
 @media (max-width: 768px) {
+  .intro {
+    height: 100vh;
+  }
   .intro-heading {
     left: 2rem;
     width: 90vw;
@@ -162,25 +165,33 @@ nav {
   }
 
   .intro-circle {
-    top: -4rem;
-    right: 2rem;
-    width: 10rem;
-    height: 10rem;
+    position: relative;
+    left: 0;
+    /* left: 5rem; */
+    width: 80vw;
+    height: 300px;
+    font-size: 10rem;
   }
 
   .intro-content {
+    width: 100vw;
     top: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     height: auto;
-    padding: 2rem 0;
+    /* padding: 2rem 0; */
   }
 
   .intro-svg-container {
+    display: none;
     width: 350px;
   }
 
   .intro-text {
-    font-size: 0.5rem;
+    font-size: 1.5rem;
     max-width: 80%;
-    line-height: 1.3rem;
+    line-height: 1.9rem;
   }
 }
