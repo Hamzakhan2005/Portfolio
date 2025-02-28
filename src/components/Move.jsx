@@ -18,7 +18,7 @@ import {
 const Move = () => {
   function wheelAnim() {
     window.addEventListener("wheel", function (dets) {
-      if (dets.deltaY > 0) {
+      if (dets.deltaY >= 0) {
         gsap.to(".move-marque", {
           transform: "translateX(-200%)",
           repeat: -1,

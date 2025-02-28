@@ -8,8 +8,8 @@ gsap.registerPlugin(useGSAP);
 const TechStack = () => {
   useEffect(() => {
     const handleWheel = (dets) => {
-      const directionOne = dets.deltaY > 0 ? "-100%" : "0%";
-      const directionTwo = dets.deltaY > 0 ? "0" : "-100%";
+      const directionOne = dets.deltaY >= 0 ? "-100%" : "0%";
+      const directionTwo = dets.deltaY >= 0 ? "0" : "-100%";
       gsap.to(".tech-move-first ", {
         x: directionOne, // Moves the duplicated elements seamlessly
         duration: 10, // Adjust the speed
