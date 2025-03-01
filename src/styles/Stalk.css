@@ -109,7 +109,9 @@
     width: 90vw;
     padding: 0.8rem;
   }
-
+  .stalk-head {
+    padding-left: 1rem;
+  }
   .stalk-moving h2 {
     font-size: 1.6rem; /* Reduce text size for better readability */
   }

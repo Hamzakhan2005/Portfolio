@@ -161,15 +161,15 @@ nav {
   .intro-heading {
     left: 1rem;
     width: 95vw;
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .intro-circle {
     position: relative;
     left: 0;
     /* left: 5rem; */
-    width: 80vw;
-    height: 300px;
+    width: 88vw;
+    height: 330px;
     font-size: 10rem;
   }
 
