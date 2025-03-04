@@ -1,6 +1,7 @@
 .move {
   height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 .move-main {
   background-color: #d9ff06;
