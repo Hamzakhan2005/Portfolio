@@ -1,8 +1,9 @@
 #root {
+  position: relative;
   width: 100vw;
   height: 100vh;
   color: #fff;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 #cursor {
   background-color: #fff;
