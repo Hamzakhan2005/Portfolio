@@ -128,7 +128,6 @@ const Main = () => {
   };
   return (
     <>
-      <nav>{/* <HiOutlineMenuAlt4 className="menu" /> */}</nav>
       <div className="intro">
         <section className="intro-heading">
           <h1 ref={(el) => (h1Refs.current[0] = el)}>Mohammad </h1>{" "}
