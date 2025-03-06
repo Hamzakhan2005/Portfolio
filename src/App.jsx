@@ -15,10 +15,9 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulating an async operation (e.g., fetching data, animations)
     setTimeout(() => {
       setLoading(false);
-    }, 5000); // Adjust time as needed
+    }, 5000);
   }, []);
   let root = document.querySelector("#root");
   useGSAP(() => {
