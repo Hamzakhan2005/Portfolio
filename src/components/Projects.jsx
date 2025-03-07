@@ -1,10 +1,47 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Projects.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import hoverEffect from "hover-effect";
 
 gsap.registerPlugin(useGSAP);
+
+const ProjectCard = ({ title, description, link, className, image }) => {
+  const [showEffect, setShowEffect] = useState(false);
+
+  useEffect(() => {
+    if (showEffect) {
+      new hoverEffect({
+        parent: document.querySelector(`.${className} .effect-container`),
+        intensity: 0.7,
+        image1: image,
+        image2: image,
+        displacementImage: "/overlay.png",
+        imagesRatio: 0.77,
+      });
+    }
+  }, [showEffect, className, image]);
+
+  return (
+    <div
+      className={`projects-desc ${className}`}
+      onMouseEnter={() => setShowEffect(true)}
+      onMouseLeave={() => setShowEffect(false)}
+      onClick={() => window.open(link, "_blank")}
+    >
+      {/* Initially Visible Content */}
+      <div className={`projects-desc-inner ${showEffect ? "hidden" : ""}`}>
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </div>
+
+      {/* Hover Effect Container */}
+      <div
+        className={`effect-container ${showEffect ? "visible" : "hidden"}`}
+      ></div>
+    </div>
+  );
+};
 
 const Projects = () => {
   useGSAP(() => {
@@ -29,54 +66,42 @@ const Projects = () => {
       };
     });
   });
-  useEffect(() => {
-    var image_anim = new hoverEffect({
-      parent: document.querySelector(".wanderlust"),
-      intensity: 0.7,
-      image1: "/image1.jpg",
-      image2: "/wanderlust.jpg",
-      displacementImage: "/overlay.png",
-      imagesRatio: 0.77,
-    });
-  }, []);
+  // const [showEffect, setShowEffect] = useState(false);
+  // useEffect(() => {
+  //   if (showEffect) {
+  //     new hoverEffect({
+  //       parent: document.querySelector(".effect-container"),
+  //       intensity: 0.7,
+  //       image1: "/wanderlust.jpg",
+  //       image2: "/wanderlust.jpg",
+  //       displacementImage: "/overlay.png",
+  //       imagesRatio: 0.77,
+  //     });
+  //   }
+  // }, [showEffect]);
   return (
     <div className="projects">
-      <div
-        className="projects-desc wanderlust"
-        onClick={() =>
-          window.open("https://github.com/Hamzakhan2005/Wanderlust", "_blank")
-        }
-      >
-        <h1>WanderLust</h1>
-        <p>
-          A clone of Airbnb fully functional with database and authentication
-          alongside many interesting features .
-        </p>
-      </div>
-      <div
-        className="projects-desc oneFinance"
-        onClick={() =>
-          window.open(
-            "https://github.com/Hamzakhan2005/OneFinance-webApp",
-            "_blank"
-          )
-        }
-      >
-        <h1>OneFinance</h1>
-        <p>A personal finance dashboard for viewing bank account details .</p>
-      </div>
-      <div
-        className="projects-desc vibecheck"
-        onClick={() =>
-          window.open("https://github.com/Hamzakhan2005/Vibe-Check", "_blank")
-        }
-      >
-        <h1>Vibe-Check</h1>
-        <p>
-          An AI powered app that dynamically transforms themes based on users
-          facial expressions .
-        </p>
-      </div>
+      <ProjectCard
+        title="WanderLust"
+        description="A fully functional Airbnb clone with authentication and more."
+        link="https://github.com/Hamzakhan2005/Wanderlust"
+        className="wanderlust"
+        image="/wanderlust.jpg"
+      />
+      <ProjectCard
+        title="OneFinance"
+        description="A personal finance dashboard for viewing bank account details."
+        link="https://github.com/Hamzakhan2005/OneFinance-webApp"
+        className="oneFinance"
+        image="/onefinance.jpg"
+      />
+      <ProjectCard
+        title="Vibe-Check"
+        description="An AI-powered app that dynamically transforms themes based on users' facial expressions."
+        link="https://github.com/Hamzakhan2005/Vibe-Check"
+        className="vibecheck"
+        image="/vibecheck.jpg"
+      />
     </div>
   );
 };
