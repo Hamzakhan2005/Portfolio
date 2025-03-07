@@ -6,6 +6,15 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP);
 
 const TechStack = () => {
+  useGSAP(() => {
+    gsap.from(".tech-content-main h1", {
+      y: 90,
+      duration: 0.6,
+      delay: 0.5,
+      stagger: 0.2,
+      opacity: 0,
+    });
+  });
   useEffect(() => {
     const handleWheel = (dets) => {
       const directionOne = dets.deltaY >= 0 ? "-100%" : "0%";

@@ -3,10 +3,21 @@
   width: 100vw;
   overflow: hidden;
 }
-
+.intro-bg-svg {
+  position: absolute;
+  top: 10vh;
+  right: 2rem;
+  height: 35vh;
+  opacity: 0;
+  color: #6cb0cf;
+}
+.intro-bg-svg img {
+  width: 26vw;
+  height: 30rem;
+}
 .intro-heading {
   position: absolute;
-  left: 5rem;
+  left: 11rem;
   top: 2rem;
   /* margin-top: 7rem; */
   text-align: center;
@@ -155,13 +166,8 @@ nav {
     font-size: 2rem;
   }
 
-  .intro-circle {
-    position: relative;
-    left: 0;
-    /* left: 5rem; */
-    width: 88vw;
-    height: 330px;
-    font-size: 10rem;
+  .intro-about {
+    top: 10vh;
   }
 
   .intro-content {
@@ -172,6 +178,7 @@ nav {
     justify-content: center;
     flex-direction: column;
     height: auto;
+    font-size: 0.4rem;
     /* padding: 2rem 0; */
   }
 

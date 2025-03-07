@@ -98,7 +98,8 @@
     /* Stack items vertically */
     align-items: center;
     width: 100vw;
-    height: 100vh;
+
+    height: 200vh;
   }
 
   .projects-desc {
