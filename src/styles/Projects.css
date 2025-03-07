@@ -22,7 +22,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-color: #daff06ea;
+  /* background-color: #daff06ea; */
   border-radius: 2rem;
   cursor: pointer;
   padding: 0.7rem;
@@ -34,6 +34,17 @@
 .projects-desc p {
   font-size: 1.3rem;
   font-weight: bold;
+}
+.wanderlust {
+  width: 35vw;
+  height: 48vh;
+  position: relative;
+  overflow: hidden;
+}
+.wanderlust canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover; /* Ensures images fit the container */
 }
 @media (max-width: 1024px) {
   .projects {

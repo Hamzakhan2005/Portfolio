@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/Projects.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import hoverEffect from "hover-effect";
+
 gsap.registerPlugin(useGSAP);
 
 const Projects = () => {
@@ -27,11 +29,20 @@ const Projects = () => {
       };
     });
   });
-
+  useEffect(() => {
+    var image_anim = new hoverEffect({
+      parent: document.querySelector(".wanderlust"),
+      intensity: 0.7,
+      image1: "/image1.jpg",
+      image2: "/wanderlust.jpg",
+      displacementImage: "/overlay.png",
+      imagesRatio: 0.77,
+    });
+  }, []);
   return (
     <div className="projects">
       <div
-        className="projects-desc"
+        className="projects-desc wanderlust"
         onClick={() =>
           window.open("https://github.com/Hamzakhan2005/Wanderlust", "_blank")
         }
@@ -43,7 +54,7 @@ const Projects = () => {
         </p>
       </div>
       <div
-        className="projects-desc"
+        className="projects-desc oneFinance"
         onClick={() =>
           window.open(
             "https://github.com/Hamzakhan2005/OneFinance-webApp",
@@ -55,7 +66,7 @@ const Projects = () => {
         <p>A personal finance dashboard for viewing bank account details .</p>
       </div>
       <div
-        className="projects-desc"
+        className="projects-desc vibecheck"
         onClick={() =>
           window.open("https://github.com/Hamzakhan2005/Vibe-Check", "_blank")
         }

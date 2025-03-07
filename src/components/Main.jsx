@@ -12,6 +12,15 @@ const Main = () => {
   const pathRef = useRef();
   const h1Refs = useRef([]);
   useGSAP(() => {
+    gsap.to(".intro-text", {
+      opacity: 0.3,
+      // ease: "expo.out",
+      fontSize: "1.5rem",
+      fontWeight: 900,
+      duration: 2,
+      yoyo: true,
+      repeat: -1,
+    });
     h1Refs.current.forEach((h1) => {
       if (!h1) return;
 
@@ -42,33 +51,6 @@ const Main = () => {
       delay: 0.5,
       stagger: -0.15,
       opacity: 0,
-    });
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 768px)", () => {
-      // This animation runs only if the screen width is 768px or more
-      gsap.to(".intro-circle", {
-        duration: 0.1,
-
-        scrollTrigger: {
-          trigger: ".intro-circle",
-          scroller: "body",
-          // markers: true,
-          start: "top 60%",
-          scrub: 5,
-        },
-        fontSize: 15,
-        y: 250,
-        x: -400,
-        scaleX: 3.5,
-
-        borderRadius: 47,
-      });
-
-      return () => {
-        // Cleanup function (runs when the condition is no longer met)
-        gsap.killTweensOf(".intro-circle");
-      };
     });
   }, []);
   var path = `M 10 100 Q 450 10 890 100`;
@@ -144,13 +126,12 @@ const Main = () => {
           </h1>
         </section>
 
-        <div className="intro-content">
-          <div className="intro-circle">
-            <div className="intro-text">
-              I'm a bachelors student in Computer Science . A web developer and
-              adept in problem solving.
-            </div>
+        <div className="intro-about">
+          <div className="intro-text">
+            I'm a bachelors student in Computer Science . A web developer and
+            adept in problem solving.
           </div>
+
           <div ref={content} className="intro-svg-container">
             <svg
               width="900"

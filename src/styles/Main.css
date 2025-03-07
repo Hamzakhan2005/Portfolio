@@ -3,6 +3,7 @@
   width: 100vw;
   overflow: hidden;
 }
+
 .intro-heading {
   position: absolute;
   left: 5rem;
@@ -13,7 +14,7 @@
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  height: 40vh;
+  height: 100vh;
   /* background-color: rebeccapurple; */
   width: 70vw;
   font-size: 6rem;
@@ -36,7 +37,16 @@ nav {
   align-items: center;
   /* overflow: hidden; */
 }
-
+.intro-about {
+  top: 100vh;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 7vh;
+}
 .intro-name {
   padding: 1rem;
   /* display: flex; */
@@ -47,42 +57,15 @@ nav {
   border-radius: 5rem;
   color: #e0fd60;
 }
-.intro-circle {
-  position: absolute;
-  top: -8.4rem;
-  right: 6.5rem;
-  background: repeating-radial-gradient(
-    circle,
-    #000000b2,
-    #00000006 5px,
-    transparent 6px
-  );
-  background-size: 30px 30px;
 
-  /* background-color: pink; */
-  width: 20rem;
-  height: 20rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.intro-content {
-  overflow: visible;
-  position: relative;
-  top: 80vh;
-  height: 30rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: last baseline;
-}
 .intro-svg-container {
   position: relative;
   top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100px;
-  width: 900px;
+  width: 100vw;
 }
 .intro-name:hover {
   background-color: #e0fd60;
@@ -91,11 +74,17 @@ nav {
 .intro-text {
   text-align: center;
   font-size: 0.8rem;
-
-  max-width: 50%;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/wavey-fingerprint.svg");
+  opacity: 1;
+  max-width: 70%;
   line-height: 1.5rem;
-  transform: scaleX(0.8) !important ; /* Prevent text distortion */
+  border-radius: 20px;
 }
+
 @media (max-width: 1024px) {
   .intro-heading {
     left: 3rem;
