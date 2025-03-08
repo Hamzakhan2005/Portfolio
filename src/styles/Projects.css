@@ -141,12 +141,12 @@
     align-items: center;
     width: 100vw;
 
-    height: 200vh;
+    height: 150vh;
   }
 
   .projects-desc {
     width: 70vw;
-    height: auto;
+    height: 40vh;
     padding: 1.5rem;
   }
 

@@ -11,6 +11,12 @@ const TechStack = () => {
       y: 90,
       duration: 0.6,
       delay: 0.5,
+      scrollTrigger: {
+        trigger: ".tech-content-main",
+        scroller: "body",
+        start: "top 40%",
+        scrub: 2,
+      },
       stagger: 0.2,
       opacity: 0,
     });
