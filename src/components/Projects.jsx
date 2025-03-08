@@ -49,7 +49,7 @@ const Projects = () => {
     mm.add("(min-width: 768px)", () => {
       // This animation runs only if the screen width is 768px or more
       gsap.to(".projects-desc", {
-        transform: "translateX(-250%)",
+        transform: "translateX(-350%)",
         scrollTrigger: {
           trigger: ".projects",
           pin: true,
@@ -66,19 +66,7 @@ const Projects = () => {
       };
     });
   });
-  // const [showEffect, setShowEffect] = useState(false);
-  // useEffect(() => {
-  //   if (showEffect) {
-  //     new hoverEffect({
-  //       parent: document.querySelector(".effect-container"),
-  //       intensity: 0.7,
-  //       image1: "/wanderlust.jpg",
-  //       image2: "/wanderlust.jpg",
-  //       displacementImage: "/overlay.png",
-  //       imagesRatio: 0.77,
-  //     });
-  //   }
-  // }, [showEffect]);
+
   return (
     <div className="projects">
       <ProjectCard
@@ -101,6 +89,13 @@ const Projects = () => {
         link="https://github.com/Hamzakhan2005/Vibe-Check"
         className="vibecheck"
         image="/vibecheck.jpg"
+      />
+      <ProjectCard
+        title="The Game Of Life"
+        description="A sleek display of Conway's the game of life with full functionality."
+        link="https://github.com/Hamzakhan2005/game-of-life"
+        className="gameoflife"
+        image="/gameoflife.jpg"
       />
     </div>
   );

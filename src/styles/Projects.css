@@ -47,6 +47,12 @@
   position: relative;
   overflow: hidden;
 }
+.gameoflife {
+  width: 35vw;
+  height: 48vh;
+  position: relative;
+  overflow: hidden;
+}
 .vibecheck {
   width: 35vw;
   height: 48vh;

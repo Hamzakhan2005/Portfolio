@@ -6,7 +6,7 @@ import * as THREE from "three";
 import { use } from "react";
 
 const Cylinder = () => {
-  let tex = useTexture("/image.jpg");
+  let tex = useTexture("/rotate.png");
   let cyl = useRef();
   useFrame((state, delta) => {
     cyl.current.rotation.y += delta;
