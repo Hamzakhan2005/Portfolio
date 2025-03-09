@@ -14,7 +14,7 @@ const TechStack = () => {
       scrollTrigger: {
         trigger: ".tech-content-main",
         scroller: "body",
-        start: "top 40%",
+        start: "top 70%",
         scrub: 2,
       },
       stagger: 0.2,
