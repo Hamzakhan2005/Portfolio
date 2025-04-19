@@ -70,6 +70,13 @@ const Projects = () => {
   return (
     <div className="projects">
       <ProjectCard
+        title="FreeWork"
+        description="Freelancer app with milestone payments, escrow, work uploads, and dispute chat."
+        link="https://github.com/Hamzakhan2005/IITR-HACKATHON"
+        className="vibecheck"
+        image="/freework.jpg"
+      />
+      <ProjectCard
         title="WanderLust"
         description="A fully functional Airbnb clone with authentication and more."
         link="https://github.com/Hamzakhan2005/Wanderlust"
@@ -83,13 +90,7 @@ const Projects = () => {
         className="oneFinance"
         image="/onefinance.jpg"
       />
-      <ProjectCard
-        title="Vibe-Check"
-        description="An AI-powered app that dynamically transforms themes based on users' facial expressions."
-        link="https://github.com/Hamzakhan2005/Vibe-Check"
-        className="vibecheck"
-        image="/vibecheck.jpg"
-      />
+
       <ProjectCard
         title="The Game Of Life"
         description="A sleek display of Conway's the game of life with full functionality."
