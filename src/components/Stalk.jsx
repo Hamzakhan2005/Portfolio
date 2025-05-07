@@ -13,6 +13,13 @@ const Stalk = () => {
       },
     },
     {
+      name: "LEETCODE",
+      className: "leetcode",
+      handleClick: () => {
+        window.open("https://leetcode.com/u/hamza_p2/");
+      },
+    },
+    {
       name: "GMAIL",
       className: "gmail",
       handleClick: () => {
