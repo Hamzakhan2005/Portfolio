@@ -89,7 +89,13 @@ const Main = () => {
     };
   }, []);
   const boxRef = useRef();
-
+  const handleClick = () => {
+    const link = document.createElement("a");
+    link.href = "/Mohammad Hamza Khan CV .pdf";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.click();
+  };
   const handleMouseEnter = () => {
     gsap.to(boxRef.current, {
       backgroundPosition: "0% 0%",
@@ -117,6 +123,7 @@ const Main = () => {
             ref={boxRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onClick={handleClick}
             className="intro-name"
           >
             Hamza
