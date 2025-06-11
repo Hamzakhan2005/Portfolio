@@ -18,10 +18,10 @@ body {
   place-items: center;
   height: 100vh;
   width: 100vw;
-
+  background: rgb(5, 5, 5);
   overflow-x: hidden;
   /* background-color: ; */
-  background: rgb(5, 5, 5);
+  /* background: rgb(5, 5, 5);
   --gap: 5em;
   --line: 1px;
   --color: rgba(255, 255, 255, 0.053);
@@ -38,6 +38,6 @@ body {
       var(--color) calc(var(--gap) - var(--line) + 1px),
       var(--color) var(--gap)
     );
-  background-size: var(--gap) var(--gap);
+  background-size: var(--gap) var(--gap); */
 }
 /* color: #e0fd60; */

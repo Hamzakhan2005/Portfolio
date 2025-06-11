@@ -5,6 +5,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Dither from "./Dither";
+import ScrambledText from "./ScrambledText";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 const Main = () => {
@@ -12,15 +14,15 @@ const Main = () => {
   const pathRef = useRef();
   const h1Refs = useRef([]);
   useGSAP(() => {
-    gsap.to(".intro-text", {
-      opacity: 0.3,
-      // ease: "expo.out",
-      fontSize: "1.5rem",
-      fontWeight: 900,
-      duration: 2,
-      yoyo: true,
-      repeat: -1,
-    });
+    // gsap.to(".intro-text", {
+    //   opacity: 1,
+    //   // ease: "expo.out",
+    //   fontSize: "1.5rem",
+    //   fontWeight: 900,
+    //   duration: 2,
+    //   yoyo: true,
+    //   repeat: -1,
+    // });
     h1Refs.current.forEach((h1) => {
       if (!h1) return;
 
@@ -56,38 +58,38 @@ const Main = () => {
   var path = `M 10 100 Q 450 10 890 100`;
   var finalPath = `M 10 100 Q 450 100 890 100`;
 
-  useEffect(() => {
-    const handleMouseMove = (dets) => {
-      const boundingBox = content.current.getBoundingClientRect();
-      const relativeY = dets.clientY - boundingBox.top;
-      const relativeX = dets.clientX - boundingBox.left;
-      path = `M 10 100 Q ${relativeX} ${relativeY} 890 100`;
+  // useEffect(() => {
+  //   const handleMouseMove = (dets) => {
+  //     const boundingBox = content.current.getBoundingClientRect();
+  //     const relativeY = dets.clientY - boundingBox.top;
+  //     const relativeX = dets.clientX - boundingBox.left;
+  //     path = `M 10 100 Q ${relativeX} ${relativeY} 890 100`;
 
-      gsap.to(pathRef.current, {
-        attr: { d: path },
-        duration: 0.3,
-        ease: "elastic.out(1, 0.3)",
-      });
-    };
+  //     gsap.to(pathRef.current, {
+  //       attr: { d: path },
+  //       duration: 0.3,
+  //       ease: "elastic.out(1, 0.3)",
+  //     });
+  //   };
 
-    const handleMouseLeave = () => {
-      gsap.to(pathRef.current, {
-        attr: { d: finalPath },
-        duration: 1,
-        ease: "elastic.out(1, 0.2)",
-      });
-    };
+  //   const handleMouseLeave = () => {
+  //     gsap.to(pathRef.current, {
+  //       attr: { d: finalPath },
+  //       duration: 1,
+  //       ease: "elastic.out(1, 0.2)",
+  //     });
+  //   };
 
-    const element = content.current;
-    element.addEventListener("mousemove", handleMouseMove);
-    element.addEventListener("mouseleave", handleMouseLeave);
+  //   const element = content.current;
+  //   element.addEventListener("mousemove", handleMouseMove);
+  //   element.addEventListener("mouseleave", handleMouseLeave);
 
-    // Cleanup function to remove event listeners
-    return () => {
-      element.removeEventListener("mousemove", handleMouseMove);
-      element.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
+  //   // Cleanup function to remove event listeners
+  //   return () => {
+  //     element.removeEventListener("mousemove", handleMouseMove);
+  //     element.removeEventListener("mouseleave", handleMouseLeave);
+  //   };
+  // }, []);
   const boxRef = useRef();
   const handleClick = () => {
     const link = document.createElement("a");
@@ -117,6 +119,16 @@ const Main = () => {
   return (
     <>
       <div className="intro">
+        <Dither
+          waveColor={[0.5, 0.5, 0.5]}
+          disableAnimation={false}
+          enableMouseInteraction={true}
+          mouseRadius={0.3}
+          colorNum={4}
+          waveAmplitude={0.3}
+          waveFrequency={3}
+          waveSpeed={0.05}
+        />
         <section className="intro-heading">
           <h1 ref={(el) => (h1Refs.current[0] = el)}>Mohammad </h1>{" "}
           <h1
@@ -134,26 +146,16 @@ const Main = () => {
         </section>
 
         <div className="intro-about">
-          <div className="intro-text">
+          <ScrambledText
+            className="scrambled-text-demo"
+            radius={100}
+            duration={1.2}
+            speed={0.5}
+            scrambleChars={".:"}
+          >
             I'm a bachelors student in Computer Science . A web developer and
             adept in problem solving.
-          </div>
-
-          <div ref={content} className="intro-svg-container">
-            <svg
-              width="900"
-              height="200"
-              className="intro-svg"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                ref={pathRef}
-                d="M 10 100 Q 450 100 890 100"
-                stroke=" gainsboro"
-                fill="transparent"
-              />
-            </svg>
-          </div>
+          </ScrambledText>
         </div>
       </div>
     </>
