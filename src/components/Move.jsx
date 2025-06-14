@@ -1,19 +1,19 @@
 import React from "react";
 import "../styles/Move.css";
-import Cylinder from "./Cylinder";
+// import Cylinder from "./Cylinder";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP);
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { CylinderGeometry } from "three";
-import * as THREE from "three";
-import {
-  EffectComposer,
-  Bloom,
-  ToneMapping,
-} from "@react-three/postprocessing";
+// import { Canvas } from "@react-three/fiber";
+// import { OrbitControls } from "@react-three/drei";
+// import { CylinderGeometry } from "three";
+// import * as THREE from "three";
+// import {
+//   EffectComposer,
+//   Bloom,
+//   ToneMapping,
+// } from "@react-three/postprocessing";
 
 const Move = () => {
   function wheelAnim() {
@@ -102,7 +102,7 @@ const Move = () => {
           />
         </div>
       </div>
-      <div className="move-cylinder">
+      {/* <div className="move-cylinder">
         <Canvas flat camera={{ fov: 30 }}>
           <ambientLight intensity={0.5} />
           <Cylinder />
@@ -115,7 +115,7 @@ const Move = () => {
             />
           </EffectComposer>
         </Canvas>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -71,7 +71,7 @@ function App() {
       <div id="cursor"></div>
 
       <Main />
-      {/* <Move /> */}
+      <Move />
       <div style={{ height: "600px", position: "relative" }}>
         <InfiniteMenu items={items} />
       </div>
