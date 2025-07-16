@@ -376,6 +376,10 @@ class App {
         image: `/gameoflife.jpg`,
         text: "Game of Life",
       },
+      {
+        image: `/locora.jpg`,
+        text: "Locora",
+      },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);

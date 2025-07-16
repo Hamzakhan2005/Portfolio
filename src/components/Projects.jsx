@@ -98,6 +98,14 @@ const Projects = () => {
         className="gameoflife"
         image="/gameoflife.jpg"
       />
+
+      <ProjectCard
+        title="Locora"
+        description="Locora connects neighbors to request and offer help instantly."
+        link="https://github.com/Hamzakhan2005/Locora"
+        className="locora"
+        image="/locora.jpg"
+      />
     </div>
   );
 };

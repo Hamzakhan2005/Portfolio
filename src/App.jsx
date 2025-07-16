@@ -42,6 +42,13 @@ const items = [
     description:
       "A fully functional Airbnb clone with authentication and more.",
   },
+  {
+    image: "/locora.jpg",
+    link: "https://github.com/Hamzakhan2005/Locora",
+    title: "Locora",
+    description:
+      "Locora connects neighbors to request and offer help instantly.",
+  },
 ];
 
 gsap.registerPlugin(useGSAP);
