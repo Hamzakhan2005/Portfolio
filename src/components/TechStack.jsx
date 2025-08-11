@@ -2,31 +2,25 @@ import React from "react";
 import "../styles/TechStack.css";
 import { useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 gsap.registerPlugin(useGSAP);
 
 const TechStack = () => {
   useGSAP(() => {
-    gsap.fromTo(
-      ".tech-content-main h1",
-      { y: 90, opacity: 0 },
-      {
-        y: -90, // goes up when scrolling down, reverses when scrolling up
-        opacity: 1,
-        stagger: 0.2,
-        ease: "none", // important for scrub animations
-        scrollTrigger: {
-          trigger: ".tech-content-main",
-          start: "top bottom", // when it just enters viewport
-          end: "bottom top", // until it leaves viewport
-          scrub: true, // ties animation to scroll both ways
-          markers: true, // remove after testing
-        },
-      }
-    );
+    gsap.from(".tech-content-main h1", {
+      yPercent: 100,
+      opacity: 0,
+      ease: "power2.out",
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: ".tech-content-main",
+        start: "top 80%", // when top of container hits 80% of viewport
+        end: "bottom 60%", // adjust if needed
+        scrub: false, // not tied to scroll; plays once when visible
+        toggleActions: "play none none reverse",
+        // markers: true, // remove later
+      },
+    });
   });
 
   useEffect(() => {
