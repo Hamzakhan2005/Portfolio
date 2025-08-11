@@ -2,25 +2,33 @@ import React from "react";
 import "../styles/TechStack.css";
 import { useEffect } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 gsap.registerPlugin(useGSAP);
 
 const TechStack = () => {
   useGSAP(() => {
-    gsap.from(".tech-content-main h1", {
-      y: 90,
-      duration: 0.6,
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: ".tech-content-main",
-        scroller: "body",
-        start: "top 70%",
-        scrub: 2,
-      },
-      stagger: 0.2,
-      opacity: 0,
-    });
+    gsap.fromTo(
+      ".tech-content-main h1",
+      { y: 90, opacity: 0 },
+      {
+        y: -90, // goes up when scrolling down, reverses when scrolling up
+        opacity: 1,
+        stagger: 0.2,
+        ease: "none", // important for scrub animations
+        scrollTrigger: {
+          trigger: ".tech-content-main",
+          start: "top bottom", // when it just enters viewport
+          end: "bottom top", // until it leaves viewport
+          scrub: true, // ties animation to scroll both ways
+          markers: true, // remove after testing
+        },
+      }
+    );
   });
+
   useEffect(() => {
     const handleWheel = (dets) => {
       const directionOne = dets.deltaY >= 0 ? "-100%" : "0%";
