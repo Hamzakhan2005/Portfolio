@@ -13,4 +13,11 @@
   position: fixed;
   backdrop-filter: blur(10px);
   z-index: 9999;
+  will-change: transform;
+}
+.tech-move-first,
+.tech-move-second,
+.move-marque {
+  transform: translateZ(0);
+  will-change: transform;
 }

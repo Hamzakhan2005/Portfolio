@@ -10,9 +10,13 @@ import Stalk from "./components/Stalk";
 import { useGSAP } from "@gsap/react";
 import Projects from "./components/Projects";
 import Loader from "./components/Loader";
-import CircularGallery from "./components/Gallery";
-import InfiniteMenu from "./components/InfiniteMenu";
+import { lazy, Suspense } from 'react';
 
+// Replace direct imports with lazy imports
+const CircularGallery = lazy(() => import('./components/Gallery'));
+const InfiniteMenu = lazy(() => import('./components/InfiniteMenu'));
+
+// Then in your render function, wrap with Suspense
 const items = [
   {
     image: "/freework.jpg",
@@ -79,12 +83,14 @@ function App() {
 
       <Main />
       <Move />
-      <div style={{ height: "600px", position: "relative" }}>
+      <Suspense fallback={<div>Loading...</div>}>
         <InfiniteMenu items={items} />
-      </div>
-      <div style={{ height: "600px", position: "relative" }}>
-        <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
-      </div>
+      </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div style={{ height: "600px", position: "relative" }}>
+          <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
+        </div>
+      </Suspense>
       {/* <Projects /> */}
       <TechStack />
 

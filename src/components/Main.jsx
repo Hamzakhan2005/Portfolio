@@ -120,6 +120,9 @@ const Main = () => {
     <>
       <div className="intro">
         <Dither
+          style={{
+            zIndex: -1,
+          }}
           waveColor={[0.5, 0.5, 0.5]}
           disableAnimation={false}
           enableMouseInteraction={true}
