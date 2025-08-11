@@ -674,6 +674,12 @@ class InfiniteGridMenu {
   }
 
   run(time = 0) {
+    // Skip frames when tab is not visible
+    if (document.hidden) {
+      requestAnimationFrame((t) => this.run(t));
+      return;
+    }
+    
     this.#deltaTime = Math.min(32, time - this.#time);
     this.#time = time;
     this.#deltaFrames = this.#deltaTime / this.TARGET_FRAME_DURATION;
@@ -741,7 +747,7 @@ class InfiniteGridMenu {
       uAtlasSize: gl.getUniformLocation(this.discProgram, "uAtlasSize"),
     };
 
-    this.discGeo = new DiscGeometry(56, 1);
+    this.discGeo = new DiscGeometry(32, 1);
     this.discBuffers = this.discGeo.data;
     this.discVAO = makeVertexArray(
       gl,
@@ -794,7 +800,7 @@ class InfiniteGridMenu {
     this.atlasSize = Math.ceil(Math.sqrt(itemCount));
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
-    const cellSize = 512;
+    const cellSize = 256;
 
     canvas.width = this.atlasSize * cellSize;
     canvas.height = this.atlasSize * cellSize;

@@ -38,6 +38,11 @@
 }
 .tech-move-first,
 .tech-move-second {
+  will-change: transform;
+  transform: translateZ(0); /* Hardware acceleration */
+}
+.tech-move-first,
+.tech-move-second {
   margin-top: 2rem;
   gap: 7rem;
   display: flex;

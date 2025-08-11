@@ -8,6 +8,10 @@
   display: flex;
 }
 .move-marque {
+  will-change: transform;
+  transform: translateZ(0); /* Hardware acceleration */
+}
+.move-marque {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -68,7 +72,7 @@
 @media (max-width: 480px) {
   .move {
     width: 110vw;
-    height: 80vh;
+    /* height: 80vh; */
     overflow-x: hidden;
     overflow: hidden;
   }

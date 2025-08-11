@@ -160,6 +160,7 @@ class Media {
     this.program = new Program(this.gl, {
       depthTest: false,
       depthWrite: false,
+      // Optimize the vertex shader
       vertex: `
         precision highp float;
         attribute vec3 position;
@@ -172,7 +173,8 @@ class Media {
         void main() {
           vUv = uv;
           vec3 p = position;
-          p.z = (sin(p.x * 4.0 + uTime) * 1.5 + cos(p.y * 2.0 + uTime) * 1.5) * (0.1 + uSpeed * 0.5);
+          // Reduce complexity of wave calculation
+          p.z = (sin(p.x * 2.0 + uTime) + cos(p.y * 1.0 + uTime)) * (0.1 + uSpeed * 0.3);
           gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
         }
       `,

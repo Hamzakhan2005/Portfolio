@@ -75,16 +75,13 @@ const TechStack = () => {
     window.addEventListener("touchmove", handleTouchMove);
     window.addEventListener("touchend", handleTouchEnd);
 
-    // Cleanup function (useful if inside React's `useEffect`)
-    const cleanup = () => {
+    // Return the cleanup function
+    return () => {
       window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-
-    // Call cleanup when necessary
-    // cleanup();
   }, []);
 
   return (

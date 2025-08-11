@@ -1,6 +1,6 @@
 .intro {
   height: 200vh;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
 }
 .intro-bg-svg {
@@ -17,7 +17,7 @@
 }
 .intro-heading {
   position: absolute;
-  left: 11rem;
+  left: 15%;
   top: 2rem;
   /* margin-top: 7rem; */
   text-align: center;
@@ -25,11 +25,11 @@
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  height: 100vh;
+  height: 70vh;
   /* background-color: rebeccapurple; */
   width: 70vw;
-  font-size: 6rem;
-  cursor: pointer;
+  font-size: 7rem;
+  cursor: none;
   /* overflow: hidden; */
 }
 .intro-heading h1 {

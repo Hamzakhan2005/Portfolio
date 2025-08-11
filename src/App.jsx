@@ -10,11 +10,11 @@ import Stalk from "./components/Stalk";
 import { useGSAP } from "@gsap/react";
 import Projects from "./components/Projects";
 import Loader from "./components/Loader";
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense } from "react";
 
 // Replace direct imports with lazy imports
-const CircularGallery = lazy(() => import('./components/Gallery'));
-const InfiniteMenu = lazy(() => import('./components/InfiniteMenu'));
+const CircularGallery = lazy(() => import("./components/Gallery"));
+const InfiniteMenu = lazy(() => import("./components/InfiniteMenu"));
 
 // Then in your render function, wrap with Suspense
 const items = [
@@ -66,14 +66,35 @@ function App() {
   }, []);
   let root = document.querySelector("#root");
   useGSAP(() => {
-    root.addEventListener("mousemove", function (dets) {
+    // Throttle function implementation
+    function throttle(func, limit) {
+      let inThrottle;
+      return function () {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => (inThrottle = false), limit);
+        }
+      };
+    }
+
+    // Throttled handler
+    const handleMouseMove = throttle(function (dets) {
       gsap.to("#cursor", {
         x: dets.x,
         y: dets.y,
-        duration: 2,
-        ease: "back.out(2.5)",
+        duration: 0.3,
+        ease: "power2.out",
       });
-    });
+    }, 16); // ~60fps
+
+    root.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      root.removeEventListener("mousemove", handleMouseMove);
+    };
   });
   return loading ? (
     <Loader />
