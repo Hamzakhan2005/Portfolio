@@ -337,7 +337,9 @@ class App {
     this.onResize();
     this.createGeometry();
     this.createMedias(items, bend, textColor, borderRadius, font);
-    this.update();
+    this.update = this.update.bind(this);
+    this.raf = requestAnimationFrame(this.update);
+
     this.addEventListeners();
   }
   createRenderer() {
@@ -419,10 +421,11 @@ class App {
     this.isDown = false;
     this.onCheck();
   }
-  onWheel() {
-    this.scroll.target += 2;
+  onWheel(e) {
+    this.scroll.target += e.deltaY * 0.002; // adjustable speed
     this.onCheckDebounce();
   }
+
   onCheck() {
     if (!this.medias || !this.medias[0]) return;
     const width = this.medias[0].width;
@@ -450,18 +453,18 @@ class App {
     }
   }
   update() {
-    this.scroll.current = lerp(
-      this.scroll.current,
-      this.scroll.target,
-      this.scroll.ease
-    );
-    const direction = this.scroll.current > this.scroll.last ? "right" : "left";
-    if (this.medias) {
-      this.medias.forEach((media) => media.update(this.scroll, direction));
+    this.scroll.current +=
+      (this.scroll.target - this.scroll.current) * this.scroll.ease;
+
+    if (Math.abs(this.scroll.current - this.scroll.last) > 0.001) {
+      const direction =
+        this.scroll.current > this.scroll.last ? "right" : "left";
+      this.medias.forEach((m) => m.update(this.scroll, direction));
     }
+
     this.renderer.render({ scene: this.scene, camera: this.camera });
     this.scroll.last = this.scroll.current;
-    this.raf = window.requestAnimationFrame(this.update.bind(this));
+    this.raf = requestAnimationFrame(this.update);
   }
   addEventListeners() {
     this.boundOnResize = this.onResize.bind(this);

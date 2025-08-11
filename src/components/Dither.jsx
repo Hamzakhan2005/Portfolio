@@ -201,6 +201,15 @@ function DitheredWaves({
       res.set(w, h);
     }
   }, [size, gl]);
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.hidden) gl.setAnimationLoop(null);
+      else gl.setAnimationLoop(() => {});
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () =>
+      document.removeEventListener("visibilitychange", handleVisibility);
+  }, [gl]);
 
   useFrame(({ clock }) => {
     const u = waveUniformsRef.current;
@@ -237,7 +246,7 @@ function DitheredWaves({
         />
       </mesh>
 
-      <EffectComposer>
+      <EffectComposer multisampling={0}>
         <RetroEffect colorNum={colorNum} pixelSize={pixelSize} />
       </EffectComposer>
 
@@ -269,8 +278,8 @@ export default function Dither({
     <Canvas
       className="dither-container"
       camera={{ position: [0, 0, 6] }}
-      dpr={window.devicePixelRatio}
-      gl={{ antialias: true, preserveDrawingBuffer: true }}
+      dpr={[0.75, 1]} // min and max DPR
+      gl={{ antialias: false, preserveDrawingBuffer: false }}
     >
       <DitheredWaves
         waveSpeed={waveSpeed}
