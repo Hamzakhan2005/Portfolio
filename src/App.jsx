@@ -10,6 +10,7 @@ import Stalk from "./components/Stalk";
 import { useGSAP } from "@gsap/react";
 import Projects from "./components/Projects";
 import Loader from "./components/Loader";
+import TransitionScreen from "./components/TransitionScreen";
 import { lazy, Suspense } from "react";
 
 // Replace direct imports with lazy imports
@@ -63,15 +64,24 @@ const items = [
 ];
 
 gsap.registerPlugin(useGSAP);
+
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showTransition, setShowTransition] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
+      setShowTransition(true);
     }, 5000);
   }, []);
+
+  const handleTransitionComplete = () => {
+    setShowTransition(false);
+  };
+
   let root = document.querySelector("#root");
+
   useGSAP(() => {
     // Throttle function implementation
     function throttle(func, limit) {
@@ -97,18 +107,28 @@ function App() {
       });
     }, 16); // ~60fps
 
-    root.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      root.removeEventListener("mousemove", handleMouseMove);
-    };
+    if (root) {
+      root.addEventListener("mousemove", handleMouseMove);
+      return () => {
+        root.removeEventListener("mousemove", handleMouseMove);
+      };
+    }
   });
-  return loading ? (
-    <Loader />
-  ) : (
+
+  // Show loader first
+  if (loading) {
+    return <Loader />;
+  }
+
+  // Show transition screen after loader
+  if (showTransition) {
+    return <TransitionScreen onComplete={handleTransitionComplete} />;
+  }
+
+  // Show main content after transition
+  return (
     <>
       <div id="cursor"></div>
-
       <Main />
       <Move />
       <Suspense fallback={<div>Loading...</div>}>
@@ -121,7 +141,6 @@ function App() {
       </Suspense>
       {/* <Projects /> */}
       <TechStack />
-
       <Stalk />
     </>
   );

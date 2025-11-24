@@ -1,0 +1,56 @@
+.transition-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.transition-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ffd700 0%, #ffed4e 50%, #fff9e6 100%);
+  box-shadow: 0 0 80px 40px rgba(255, 215, 0, 0.6);
+  animation: fillScreen 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    fadeOut 0.6s ease-out 1.2s forwards;
+}
+
+@keyframes fillScreen {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.transition-light::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  filter: blur(40px);
+}
