@@ -132,21 +132,23 @@ const Main = () => {
           waveFrequency={3}
           waveSpeed={0.05}
         />
-        <section className="intro-heading">
-          <h1 ref={(el) => (h1Refs.current[0] = el)}>Mohammad </h1>{" "}
-          <h1
-            ref={boxRef}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
-            className="intro-name"
-          >
-            Hamza
-          </h1>{" "}
-          <h1 ref={(el) => (h1Refs.current[1] = el)} className="last-line">
-            Khan{" "}
-          </h1>
-        </section>
+        <div className="heading-container">
+          <section className="intro-heading">
+            <h1 ref={(el) => (h1Refs.current[0] = el)}>Mohammad </h1>{" "}
+            <h1
+              ref={boxRef}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onClick={handleClick}
+              className="intro-name"
+            >
+              Hamza
+            </h1>{" "}
+            <h1 ref={(el) => (h1Refs.current[1] = el)} className="last-line">
+              Khan{" "}
+            </h1>
+          </section>
+        </div>
 
         <div className="intro-about">
           <ScrambledText
