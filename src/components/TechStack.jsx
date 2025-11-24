@@ -124,6 +124,15 @@ const TechStack = () => {
         <div className="tech-move-marque">
           <img src="/web.svg" alt="" />
         </div>
+        <div className="tech-move-marque">
+          <img src="/fastapi.svg" alt="" />
+        </div>
+        <div className="tech-move-marque">
+          <img src="/nextjs.svg" alt="" />
+        </div>
+        <div className="tech-move-marque">
+          <img src="/docker.svg" alt="" />
+        </div>
 
         <div className="tech-move-marque">
           <img src="/html.svg" alt="" />
@@ -194,6 +203,15 @@ const TechStack = () => {
           <img src="/web.svg" alt="" />
         </div>
 
+        <div className="tech-move-marque">
+          <img src="/fastapi.svg" alt="" />
+        </div>
+        <div className="tech-move-marque">
+          <img src="/nextjs.svg" alt="" />
+        </div>
+        <div className="tech-move-marque">
+          <img src="/docker.svg" alt="" />
+        </div>
         <div className="tech-move-marque">
           <img src="/html.svg" alt="" />
         </div>
