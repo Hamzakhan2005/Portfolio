@@ -106,6 +106,13 @@ const Projects = () => {
         className="locora"
         image="/locora.jpg"
       />
+      <ProjectCard
+        title="GoLocal"
+        description="Real-time Public Transport GPS tracking, Schedules, and safety-first design."
+        link="https://github.com/Hamzakhan2005/SIH-Project-A"
+        className="golocal"
+        image="/Golocal.jpg"
+      />
     </div>
   );
 };

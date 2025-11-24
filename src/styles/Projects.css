@@ -59,6 +59,12 @@
   position: relative;
   overflow: hidden;
 }
+.golocal {
+  width: 35vw;
+  height: 48vh;
+  position: relative;
+  overflow: hidden;
+}
 .wanderlust canvas {
   width: 100% !important;
   height: 100% !important;
