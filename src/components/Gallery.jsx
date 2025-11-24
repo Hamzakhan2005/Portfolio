@@ -384,6 +384,10 @@ class App {
         image: `/locora.jpg`,
         text: "Locora",
       },
+      {
+        image: `/Golocal.jpg`,
+        text: "Golocal",
+      },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);

@@ -53,6 +53,13 @@ const items = [
     description:
       "Locora connects neighbors to request and offer help instantly.",
   },
+  {
+    image: "/Golocal.jpg",
+    link: "https://github.com/Hamzakhan2005/SIH-Project-A",
+    title: "GoLocal",
+    description:
+      "Real-time Public Transport GPS tracking, Schedules, and safety-first design.",
+  },
 ];
 
 gsap.registerPlugin(useGSAP);
