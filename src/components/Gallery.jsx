@@ -388,6 +388,14 @@ class App {
         image: `/Golocal.jpg`,
         text: "Golocal",
       },
+      {
+        image: `/QRCode.jpg`,
+        text: "QR Code generator",
+      },
+      {
+        image: `/Ragbot.jpg`,
+        text: "Rag Bot",
+      },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
