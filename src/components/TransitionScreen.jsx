@@ -5,7 +5,7 @@ const TransitionScreen = ({ onComplete }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
-    }, 1800); // 1.2s fill + 0.6s fade
+    }, 2100); // 1.2s fill + 0.3s pause + 0.6s slide up
 
     return () => clearTimeout(timer);
   }, [onComplete]);
