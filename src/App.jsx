@@ -61,6 +61,19 @@ const items = [
     description:
       "Real-time Public Transport GPS tracking, Schedules, and safety-first design.",
   },
+  {
+    image: "/QRCode.jpg",
+    link: "https://github.com/Hamzakhan2005/QR-Code-Generator",
+    title: "QR Code Generator",
+    description: "A simple web app to generate QR codes instantly.",
+  },
+  {
+    image: "/Ragbot.jpg",
+    link: "https://github.com/Hamzakhan2005/Doc-summarizer",
+    title: "Rag Bot",
+    description:
+      "A simple RAGBot where users upload PDFs and ask questions through a clean chat interface.",
+  },
 ];
 
 gsap.registerPlugin(useGSAP);
